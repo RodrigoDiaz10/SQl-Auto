@@ -1,7 +1,8 @@
-CREATE DATABASE Auto;
-USE Auto;
+/*uso del alter table*/
+
+CREATE DATABASE Auto; 
 CREATE TABLE Carro (
- id INT PRIMARY KEY , 
+ id INT PRIMARY KEY ,  
  modelo VARCHAR(20) not null, 
  marca varchar(20)not null,
  tipoMotor Varchar(20)not null,
