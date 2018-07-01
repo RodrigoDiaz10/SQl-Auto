@@ -1,3 +1,4 @@
+--correccion Prueba 
 create database Prueba;
 using Prueba
 
