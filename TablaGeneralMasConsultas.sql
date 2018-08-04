@@ -101,16 +101,9 @@ insert into CaracteristicasCarro (id,nombre,id_tipoCarro) values(2,'Motor',1);
 insert into CaracteristicasCarro (id,nombre,id_tipoCarro) values(3,'Marca Combustible',1);
 
 
-insert into ValorCaracteristicas (id,valorar,unidad,id_caracteristicas,id_tipoCarro) values(1,'Minivan',1);
+insert into ValorCaracteristicas (id,valorar,unidadMedida,id_caracteristicas,id_tipoCarro) values(1,'uno','Minivan',1,1);
 
 
-select count(id), nombre
-from MarcaCarro
-inner join ModeloCarro on MarcaCarro.nombre=ModeloCarro.nombre
-where nombre='%Chevrolet%'
-group by id 
-having count <2
-order by id;
 
 /*cambiar orden de las tablkas primeras*/
 
