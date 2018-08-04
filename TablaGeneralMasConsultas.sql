@@ -103,10 +103,92 @@ insert into CaracteristicasCarro (id,nombre,id_tipoCarro) values(3,'Marca Combus
 
 insert into ValorCaracteristicas (id,valorar,unidadMedida,id_caracteristicas,id_tipoCarro) values(1,'uno','Minivan',1,1);
 
+/* Stored procedure CRUD -- create -- */
 
+delimiter $$
 
-/*cambiar orden de las tablkas primeras*/
+drop procedure if exists `Autos`.`ejemploC` $$
+create procedure `Autos`.`ejemploC` ()
+begin
 
+create table nueva(
+id int not null auto_increment primary key,
+nombre varchar (20),
+cambioFecha timestamp default current_timestamp
+on update current_timestamp
+);
+insert into nueva(id,nombre) values (1,'hi',now());
+insert into nueva(id,nombre) values (2,'jo',now());
+
+end $$
+
+delimiter ;
+call ejemploC();
+select* from nueva;
+
+/*Stored Procedure*/
+-- 
+/* Stored procedure CRUD -- read -- */
+
+delimiter $$
+
+drop procedure if exists `Autos`.`ejemploR` $$
+create procedure `Autos`.`ejemploR` ()
+begin
+
+select* from nueva
+where id =1;
+
+end $$
+
+delimiter ;
+call ejemploR();
+select* from nueva;
+
+/*Stored Procedure*/
+-- 
+/* Stored procedure CRUD -- update -- */
+
+delimiter $$
+
+drop procedure if exists `Autos`.`ejemploU` $$
+create procedure `Autos`.`ejemploU` ()
+begin
+
+update nueva
+set id=2,nombre='jo', cambioFecha=now()
+where id=1
+and cambioFecha='2018-08-04 13:43:04'; /*cambiar la fecha a la fecha en que se modifica*/
+
+end $$
+
+delimiter ;
+call ejemploU();
+select* from nueva;
+
+/*Stored Procedure*/
+--
+/* Stored procedure CRUD -- delete -- */
+
+delimiter $$
+
+drop procedure if exists `Autos`.`ejemploD` $$
+create procedure `Autos`.`ejemploD` ()
+begin
+/*solo correr esto despues de creada la tabla nueva del stored procerier*/
+
+delete from nueva 
+where id=1
+order by timestamp
+limit 1;
+
+end $$
+
+delimiter ;
+call ejemploD();
+select* from nueva;
+
+/*Stored Procedure*/
 
 
 
