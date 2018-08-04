@@ -1,6 +1,12 @@
 create database Autos;
 use Autos;
 
+create table Tipocarro
+(
+id int not null auto_increment primary key,
+nombre varchar(20) not null
+); 
+
 create table MarcaCarro
 (
 id int not null auto_increment primary key,
@@ -9,12 +15,6 @@ id_tipoCarro int not null,
 foreign key(id_tipoCarro)references TipoCarro(id)
 );
 
-
-create table Tipocarro
-(
-id int not null auto_increment primary key,
-nombre varchar(20) not null
-); 
 
 create table ModeloCarro
 (
